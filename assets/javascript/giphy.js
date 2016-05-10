@@ -1,30 +1,41 @@
 var shows = ["Friends", "Full House", "Seinfeld", "Game of Thrones", "Breaking Bad", "Grey's Anatomy", "South Park", "How I Met Your Mother", "Modern Family", "24", "SNL"];
 
-function createButtons(){
-	$('#showButtons').empty();
+function displayInfo(){
+
+	var show = $(this).attr('data-name');
+	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + show + "&api_key=dc6zaTOxFJmzC";
+
+	$.ajax({url: queryURL, method: 'GET'}).done(function(response){
+
+	})
+}
+
+
+
+function renderButtons(){
+
+	$('#viewButtons').empty();
 
 	for(var i = 0; i < shows.length; i++){
 
-		var s = $('<button>');
-
+		var s = $('<button>')
 		s.addClass('show');
 		s.attr('data-name', shows[i]);
 		s.text(shows[i]);
-		$('#showButtons').append(s);
+		$('#viewButtons').append(s);
 
 	}
 }
 
-$('add').on('click', function(){
-	var show = $('#show-input').val().trim();
+$('#add').on('click', function(){
 
+	var show = $('#input-show').val().trim();
 	shows.push(show);
-
-	createButtons();
-
+	renderButtons();
 	return false;
+
 })
 
-//$(document).on('click', '.show', displayShowInfo);
+$(document).on('click', '.show', displayInfo);
 
-createButtons();
+renderButtons();
