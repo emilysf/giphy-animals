@@ -20,7 +20,12 @@ function displayInfo(){
 				var p = $('<p>').text('Rating: ' + results[i].rating);
 
 				var showImage = $('<img>');
-				showImage.attr('src', results[i].images.fixed_height.url);
+				showImage.attr('src', results[i].images.fixed_height_still.url);
+				showImage.attr('data-still', results[i].images.fixed_height_still.url);
+                showImage.attr('data-animate', results[i].images.fixed_height.url);
+                showImage.attr('data-state', 'still');
+                showImage.addClass('showGif');
+
 
 				showDiv.append(p)
 				showDiv.append(showImage)
@@ -31,6 +36,19 @@ function displayInfo(){
 	});
 }
 
+$('#gifs').on('click', '.showGif', function(){
+
+	var state = $(this).attr('data-state');
+
+	if ( state == 'still'){
+        $(this).attr('src', $(this).data('animate'));
+        $(this).attr('data-state', 'animate');
+    }
+    else {
+        $(this).attr('src', $(this).data('still'));
+        $(this).attr('data-state', 'still');
+    }
+})
 
 function renderButtons(){
 
