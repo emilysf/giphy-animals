@@ -10,23 +10,26 @@ function displayInfo(){
 		console.log(response)
 		var results = response.data;
 
-		for(var i = 0; i < results.length; i++){
+		for(var i = 0; i < 10; i++){
 
-			var showDiv = $('<div>');
-			var p = $('<p>').text('Rating: ' + results[i].rating);
+			if (results[i].rating == "r" || results[i].rating == "pg-13"){
 
-			var showImage = $('<img>');
-			showImage.attr('src', results[i].images.fixed_height.url);
+			}
+			else {
+				var showDiv = $('<div>');
+				var p = $('<p>').text('Rating: ' + results[i].rating);
 
-			showDiv.append(p)
-			showDiv.append(showImage)
+				var showImage = $('<img>');
+				showImage.attr('src', results[i].images.fixed_height.url);
 
-			$('#gifs').prepend(showDiv);
+				showDiv.append(p)
+				showDiv.append(showImage)
+
+				$('#gifs').prepend(showDiv);
+			}
 		}
-
-	})
+	});
 }
-
 
 
 function renderButtons(){
