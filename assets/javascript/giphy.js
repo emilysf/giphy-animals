@@ -1,4 +1,4 @@
-var shows = ["Friends", "Full House", "Seinfeld", "Breaking Bad", "Grey's Anatomy", "South Park", "How I Met Your Mother", "Modern Family"];
+var shows = ["Seinfeld", "Full House", "Friends", "Breaking Bad", "Grey's Anatomy", "South Park", "How I Met Your Mother", "Modern Family"];
 
 //this section calls the info from giphy and displays the gifs
 function displayInfo(){
@@ -10,6 +10,8 @@ function displayInfo(){
 
 		console.log(response)
 		var results = response.data;
+
+		$('#gifs').empty();
 
 		for(var i = 0; i < 10; i++){
 
@@ -27,8 +29,6 @@ function displayInfo(){
                 showImage.attr('data-state', 'still');
                 showImage.addClass('showGif');
 
-				showDiv.append(p)
-				showDiv.append(showImage)
 				showDiv.prepend(p)
 				showDiv.prepend(showImage)
 
