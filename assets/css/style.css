@@ -1,0 +1,26 @@
+body {
+	background: -webkit-linear-gradient(top, rgba(164,72,72,0), rgba(164,72,72,1)); 
+    background: -o-linear-gradient(bottom, rgba(164,72,72,0), rgba(164,72,72,1)); 
+    background: -moz-linear-gradient(top, rgba(164,72,72,0), rgba(164,72,72,1)); 
+    background: linear-gradient(to bottom, rgba(164,72,72,0), rgba(164,72,72,1)); 
+}
+#showForm {
+	margin-top: 2%;
+}
+button {
+	text-align: center !important;
+	border: none !important;
+	background-color: maroon !important;
+	color: #fff !important;
+	margin:2px !important;
+	padding: 8px 20px !important;
+	border-radius: 5px !important;
+	font-size: 20px !important;
+	cursor:pointer !important;
+	display:inline !important !important;
+}
+
+p {
+	color:maroon;
+
+}

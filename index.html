@@ -2,19 +2,29 @@
 <html>
 <head>
 	<title>Giphy - Emily Frazin</title>
+
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 <body>
-	<div id="viewButtons"></div><br>
-
+	<div class="container">
 	<form id="showForm">
 
-		<label for="input-show">Add a TV Show</label>
+		<label for="input-show"><p>Add a TV Show</p></label>
 		<input type="text" id="input-show">
 
 		<input id="add" type="submit" value="Submit">
 	</form>
 
-	<div id="gifs"></div>
+	<div id="viewButtons"></div><br>
+
+	<div class="row">
+		<div class="col-md-8">
+			<div id="gifs"></div>
+		</div>
+	</div>
+	</div>
 </body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
 <script type="text/javascript" src="assets/javascript/giphy.js"></script>

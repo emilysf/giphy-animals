@@ -1,5 +1,6 @@
 var shows = ["Friends", "Full House", "Seinfeld", "Breaking Bad", "Grey's Anatomy", "South Park", "How I Met Your Mother", "Modern Family"];
 
+//this section calls the info from giphy and displays the gifs
 function displayInfo(){
 
 	var show = $(this).attr('data-name');
@@ -16,7 +17,7 @@ function displayInfo(){
 
 			}
 			else {
-				var showDiv = $('<div>');
+				var showDiv = $('<div class="gifView">');
 				var p = $('<p>').text('Rating: ' + results[i].rating);
 
 				var showImage = $('<img>');
@@ -26,9 +27,10 @@ function displayInfo(){
                 showImage.attr('data-state', 'still');
                 showImage.addClass('showGif');
 
-
 				showDiv.append(p)
 				showDiv.append(showImage)
+				showDiv.prepend(p)
+				showDiv.prepend(showImage)
 
 				$('#gifs').prepend(showDiv);
 			}
@@ -36,6 +38,7 @@ function displayInfo(){
 	});
 }
 
+//this section makes it possible to pause and play gifs
 $('#gifs').on('click', '.showGif', function(){
 
 	var state = $(this).attr('data-state');
@@ -50,6 +53,7 @@ $('#gifs').on('click', '.showGif', function(){
     }
 })
 
+//this section displays the buttons from show array
 function renderButtons(){
 
 	$('#viewButtons').empty();
@@ -57,6 +61,7 @@ function renderButtons(){
 	for(var i = 0; i < shows.length; i++){
 
 		var s = $('<button>')
+		s.addClass('btn btn-primary');
 		s.addClass('show');
 		s.attr('data-name', shows[i]);
 		s.text(shows[i]);
@@ -65,6 +70,7 @@ function renderButtons(){
 	}
 }
 
+//this section makes it possible to add a new button
 $('#add').on('click', function(){
 
 	var show = $('#input-show').val().trim();
